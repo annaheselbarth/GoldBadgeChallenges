@@ -10,6 +10,7 @@ namespace ChallengeOneCafeConsole
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
