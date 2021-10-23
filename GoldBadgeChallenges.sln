@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeTwoClaimsConsole",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeThreeBadgesConsole", "ChallengeThreeBadgesConsole\ChallengeThreeBadgesConsole.csproj", "{C76B61EE-D51B-4B38-9B07-FCDA5A2E7BD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeOneCafeTests", "ChallengeOneCafeConsole\ChallengeOneCafeTests\ChallengeOneCafeTests.csproj", "{821335FC-8E4C-4A4B-8C2E-6A848AB6579B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C76B61EE-D51B-4B38-9B07-FCDA5A2E7BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C76B61EE-D51B-4B38-9B07-FCDA5A2E7BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C76B61EE-D51B-4B38-9B07-FCDA5A2E7BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821335FC-8E4C-4A4B-8C2E-6A848AB6579B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821335FC-8E4C-4A4B-8C2E-6A848AB6579B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821335FC-8E4C-4A4B-8C2E-6A848AB6579B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821335FC-8E4C-4A4B-8C2E-6A848AB6579B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
