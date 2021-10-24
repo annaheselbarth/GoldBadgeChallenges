@@ -18,17 +18,19 @@ namespace ChallengeOneCafeConsole
         public int MealNumber { get; set; }
         public string MealName { get; set; }
         public string Description { get; set; }
+        public string Ingredients { get; set; }
         public int Price { get; set; }
 
         public List<CafeMenu> MenuList { get; set; }
 
         public string menuItems { get; set; }
-        public CafeMenu(int mealNumber, string mealName, string description, int price)
+        public CafeMenu(int mealNumber, string mealName, string description, int price, string ingredients)
         {
             MealNumber = mealNumber;
             MealName = mealName;
             Description = description;
             Price = price;
+            Ingredients = ingredients;
         }
 
     }
