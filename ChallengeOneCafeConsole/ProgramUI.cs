@@ -50,6 +50,7 @@ namespace ChallengeOneCafeConsole
 
         public void CafeMenuList()
         {
+            Console.Clear();
             Console.WriteLine("\n\n\n  *********************************  Komodo Cafe Menu List  **********************************");
             _cafeMenuRepo.GetCafeMenu();
             Console.ReadKey();
