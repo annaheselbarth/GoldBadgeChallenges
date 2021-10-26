@@ -1,4 +1,5 @@
 ﻿using ChallengeOneCafeConsole;
+using ChallengeOneCafeLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -21,11 +22,23 @@ namespace ChallengeOneCafeTests
         {
             //Arrange
 
-            CafeMenuRepo _cafeMenuRepo = new CafeMenuRepo();
-            CafeMenu cafeMenu = new CafeMenu();
+            CafeMenuItem cafeMenu = new CafeMenuItem();
 
             //Act
 
+
+           var itemAdded = _cafeMenuRepo.CreateNewItem(cafeMenu);
+
+            //Assert
+
+
+            Assert.IsTrue(itemAdded);
+
+        }
+
+        [TestMethod]
+        public void MyTestMethod()
+        {
 
         }
     }

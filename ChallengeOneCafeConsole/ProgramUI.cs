@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChallengeOneCafeLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,15 +61,15 @@ namespace ChallengeOneCafeConsole
 
         public void AddItem()
         {
-            CafeMenu menuItem = new CafeMenu();
+            CafeMenuItem menuItem = new CafeMenuItem();
             Console.Clear();
             Console.WriteLine("  Create new menu item. \n\n" + "Please enter in the name of the new menu item:  \n\n");
             menuItem.MealName = Console.ReadLine();
 
-            Console.WriteLine("\n\n Please enter in the number for the item:  \n\n");
+            /*Console.WriteLine("\n\n Please enter in the number for the item:  \n\n");
             string answer = Console.ReadLine();
             var itemNumber = int.Parse(answer);
-            menuItem.MealNumber = itemNumber;
+            menuItem.MealNumber = itemNumber;*/
             
             Console.WriteLine("\n\n Please enter in the description of the menu item:  \n\n");
             menuItem.Description = Console.ReadLine();
@@ -94,7 +95,7 @@ namespace ChallengeOneCafeConsole
             {
                 Console.Clear();
                 CafeMenuList();
-                List<CafeMenu> listOfItems = _cafeMenuRepo.GetCafeMenu();
+                List<CafeMenuItem> listOfItems = _cafeMenuRepo.GetCafeMenu();
                 if (listOfItems.Count == 0)
                 {
                     removeItem = false;

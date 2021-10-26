@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChallengeOneCafeConsole
+namespace ChallengeOneCafeLibrary
 {
     public class CafeMenuRepo
     {
         //Create - New Menu item & List of items. Each menu item needs a meal number, meal name, description, list of ingredients, and price. 
 
-        CafeMenu menu = new CafeMenu();
-        public List<CafeMenu> _cafeMenuRepo = new List<CafeMenu>();
-        int counter;
+        CafeMenuItem menu = new CafeMenuItem();
+        public List<CafeMenuItem> _cafeMenuRepo = new List<CafeMenuItem>();
+
         /*public void AddItem(CafeMenu menuItem)
         {
             counter = _cafeMenuRepo.Count + 1;
@@ -20,18 +20,23 @@ namespace ChallengeOneCafeConsole
             _cafeMenuRepo.Add(menuItem);
         }*/
 
-        public void CreateNewItem(CafeMenu menuItem)
+        public bool CreateNewItem(CafeMenuItem menuItem)
         {
-            counter = _cafeMenuRepo.Count +1;
+            int initCount = _cafeMenuRepo.Count;
+            int counter;
+            counter = _cafeMenuRepo.Count + 1;
             menuItem.MealNumber = counter;
             _cafeMenuRepo.Add(menuItem);
+            int newCount = _cafeMenuRepo.Count;
+            return newCount == initCount + 1;
+
         }
 
-        public CafeMenu GetItemByNumber(int mealNumber)
+        public CafeMenuItem GetItemByNumber(int mealNumber)
         {
-            foreach(CafeMenu menu in _cafeMenuRepo)
+            foreach (CafeMenuItem menu in _cafeMenuRepo)
             {
-                if(menu.MealNumber == mealNumber)
+                if (menu.MealNumber == mealNumber)
                 {
                     return menu;
                 }
@@ -39,10 +44,10 @@ namespace ChallengeOneCafeConsole
             return null;
         }
 
-        public bool AddItemToMenu(int mealNumber, CafeMenu menuItems)
+        public bool AddItemToMenu(int mealNumber, CafeMenuItem menuItems)
         {
-            CafeMenu cafeMenu = GetItemByNumber(mealNumber);
-            if(cafeMenu != null)
+            CafeMenuItem cafeMenu = GetItemByNumber(mealNumber);
+            if (cafeMenu != null)
             {
                 _cafeMenuRepo.Add(menuItems);
                 return true;
@@ -51,7 +56,7 @@ namespace ChallengeOneCafeConsole
         }
         //Read
 
-        public List<CafeMenu> GetCafeMenu()
+        public List<CafeMenuItem> GetCafeMenu()
         {
             return _cafeMenuRepo;
         }
@@ -59,7 +64,7 @@ namespace ChallengeOneCafeConsole
         //*Client currently does not wish to update at this time. 
         //Delete
 
-        public bool RemoveItem(CafeMenu item)
+        public bool RemoveItem(CafeMenuItem item)
         {
             bool result = _cafeMenuRepo.Remove(item);
             return result;

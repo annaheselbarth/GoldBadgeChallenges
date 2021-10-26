@@ -56,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ChallengeOneCafeLibrary\ChallengeOneCafeLibrary.csproj">
+      <Project>{CFC25B26-B882-411B-8D9E-ED2FE63382EB}</Project>
+      <Name>ChallengeOneCafeLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChallengeOneCafeConsole.csproj">
       <Project>{F509EC55-193D-4A5D-BBC0-859E4C7D084C}</Project>
       <Name>ChallengeOneCafeConsole</Name>
