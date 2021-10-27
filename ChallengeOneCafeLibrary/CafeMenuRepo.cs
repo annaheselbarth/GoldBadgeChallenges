@@ -12,23 +12,24 @@ namespace ChallengeOneCafeLibrary
 
         CafeMenuItem menu = new CafeMenuItem();
         public List<CafeMenuItem> _cafeMenuRepo = new List<CafeMenuItem>();
-
-        /*public void AddItem(CafeMenu menuItem)
+        int counter = 0;
+        public void AddItem(CafeMenuItem menuItem)
         {
-            counter = _cafeMenuRepo.Count + 1;
-            menuItem.MealNumber = counter;
+            menuItem.MealNumber = counter++;
+
             _cafeMenuRepo.Add(menuItem);
-        }*/
+        }
 
-        public bool CreateNewItem(CafeMenuItem menuItem)
+        
+        public void CreateNewItem(CafeMenuItem menuItem)
         {
-            int initCount = _cafeMenuRepo.Count;
+            //int initCount = _cafeMenuRepo.Count;
             int counter;
             counter = _cafeMenuRepo.Count + 1;
             menuItem.MealNumber = counter;
             _cafeMenuRepo.Add(menuItem);
-            int newCount = _cafeMenuRepo.Count;
-            return newCount == initCount + 1;
+            //int newCount = _cafeMenuRepo.Count;
+            //return newCount == initCount ++;
 
         }
 
@@ -44,17 +45,20 @@ namespace ChallengeOneCafeLibrary
             return null;
         }
 
-        public bool AddItemToMenu(int mealNumber, CafeMenuItem menuItems)
+        public bool AddItemToMenu(CafeMenuItem menuItem)
         {
-            CafeMenuItem cafeMenu = GetItemByNumber(mealNumber);
-            if (cafeMenu != null)
-            {
-                _cafeMenuRepo.Add(menuItems);
-                return true;
-            }
-            return false;
+
+            int counter = _cafeMenuRepo.Count;
+                _cafeMenuRepo.Add(menuItem);
+                return (_cafeMenuRepo.Count > counter +1);
+            
         }
         //Read
+
+        //public List<CafeMenuItem> GetCafeMenu()
+        //{
+           // return _cafeMenuRepo;
+        //}
 
         public List<CafeMenuItem> GetCafeMenu()
         {
@@ -64,9 +68,9 @@ namespace ChallengeOneCafeLibrary
         //*Client currently does not wish to update at this time. 
         //Delete
 
-        public bool RemoveItem(CafeMenuItem item)
+        public bool RemoveItem(CafeMenuItem menuItem)
         {
-            bool result = _cafeMenuRepo.Remove(item);
+            bool result = _cafeMenuRepo.Remove(menuItem);
             return result;
         }
     }
