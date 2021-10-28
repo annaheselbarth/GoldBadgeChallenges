@@ -97,7 +97,9 @@ namespace ChallengeOneCafeConsole
             menuItem.Price = itemPrice;
 
             _cafeMenuRepo.AddItemToMenu(menuItem);
-            Console.WriteLine($"{menuItem.MealName} was added to the menu with the item number {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
+            int index = 1;
+            Console.WriteLine($"{index} {menuItem.MealName} was added to the menu with the item number {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
+               index ++;
             Console.ReadKey();
             return;
         }
@@ -123,28 +125,28 @@ namespace ChallengeOneCafeConsole
                     //while (checkNumber)
                     //{
                         int itemNumber = Number();
-                        CafeMenuItem menuItem = new CafeMenuItem();
-                        if (menuItem == null)
+                        CafeMenuItem menu = new CafeMenuItem();
+                        if (menu == null)
                         {
                             Console.WriteLine("/n/n We are not able to find that item.");
                             Console.ReadKey();
                             return;
                         }
 
-                        Console.WriteLine($" \n\n Are you sure you want to delete {menuItem.MealNumber} {menuItem.MealName}? Please enter in yes or no. ");
+                        Console.WriteLine($" \n\n Are you sure you want to delete {menu.MealNumber} {menu.MealName}? Please enter in yes or no. ");
                         string userAnswer = Console.ReadLine().ToLower();
                         if (userAnswer == "yes")
                         {
                             Console.Clear();
                             //RemoveItem();
-                            _cafeMenuRepo.RemoveItem(menuItem);
+                            _cafeMenuRepo.RemoveItem(menu);
                             Console.WriteLine(" This item was removed.   \n\n");
                             Console.ReadKey();
                             return;
                         }
                         else if (userAnswer == "no")
                         {
-                            Console.WriteLine($"\n{menuItem.MealNumber} {menuItem.MealName} was not deleted.");
+                            Console.WriteLine($"\n{menu.MealNumber} {menu.MealName} was not deleted.");
                             Console.ReadKey();
                             return;
                         }

@@ -21,15 +21,15 @@ namespace ChallengeOneCafeLibrary
         }
 
         
-        public void CreateNewItem(CafeMenuItem menuItem)
+        public bool CreateNewItem(CafeMenuItem menuItem)
         {
-            //int initCount = _cafeMenuRepo.Count;
+            int initCount = _cafeMenuRepo.Count;
             int counter;
-            counter = _cafeMenuRepo.Count + 1;
-            menuItem.MealNumber = counter;
+            counter = _cafeMenuRepo.Count +1;
+            menuItem.MealNumber = counter++;
             _cafeMenuRepo.Add(menuItem);
-            //int newCount = _cafeMenuRepo.Count;
-            //return newCount == initCount ++;
+            int newCount = _cafeMenuRepo.Count;
+            return newCount == initCount ++;
 
         }
 
@@ -45,12 +45,12 @@ namespace ChallengeOneCafeLibrary
             return null;
         }
 
-        public bool AddItemToMenu(CafeMenuItem menuItem)
+        public void AddItemToMenu(CafeMenuItem menuItem)
         {
-
-            int counter = _cafeMenuRepo.Count;
+            menuItem.MealNumber = counter++;
+            //int counter = _cafeMenuRepo.Count;
                 _cafeMenuRepo.Add(menuItem);
-                return (_cafeMenuRepo.Count > counter +1);
+                //return (_cafeMenuRepo.Count > counter +1);
             
         }
         //Read
@@ -68,9 +68,9 @@ namespace ChallengeOneCafeLibrary
         //*Client currently does not wish to update at this time. 
         //Delete
 
-        public bool RemoveItem(CafeMenuItem menuItem)
+        public bool RemoveItem(CafeMenuItem menu)
         {
-            bool result = _cafeMenuRepo.Remove(menuItem);
+            bool result = _cafeMenuRepo.Remove(menu);
             return result;
         }
     }

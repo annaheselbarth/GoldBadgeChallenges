@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChallengeTwoClaimsConsole
+namespace ChallengeTwoClaimsLibrary
 {
-    public class Program
+    class ClaimRepo
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

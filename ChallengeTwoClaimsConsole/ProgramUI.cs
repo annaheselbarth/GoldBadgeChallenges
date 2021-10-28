@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeTwoClaimsConsole
 {
-    class ClaimRepo
+    public class ProgramUI
     {
     }
 }
