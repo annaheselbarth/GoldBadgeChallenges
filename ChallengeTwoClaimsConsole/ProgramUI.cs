@@ -111,13 +111,15 @@ namespace ChallengeTwoClaimsConsole
             {
                 Console.WriteLine(" \n Here are the details for the next claim to be handled:  \n\n");
                 Claim claimInQueue = _claimRepo.GetNextClaim();
-                Console.WriteLine($" \n Claim ID:  {claimInQueue.ClaimID} | Type: {claimInQueue.TypeOfClaim} | Description: {claimInQueue.ClaimDescription} | Amount: {claimInQueue.ClaimAmount} | DateOfAccident: {claimInQueue.DateOfIncident.ToShortDateString()} | DateOfClaim: {claimInQueue.DateOfClaim.ToShortDateString()} | IsValid: {claimInQueue.IsValid} ");
-                Console.WriteLine(" /n/n Do you want to deal with this claim now(y/n)? \n\n");
+                Console.WriteLine($" \n Claim ID:  {claimInQueue.ClaimID} \n\n Type: {claimInQueue.TypeOfClaim} \n\n Description: {claimInQueue.ClaimDescription} \n\n Amount: {claimInQueue.ClaimAmount} \n\n DateOfAccident: {claimInQueue.DateOfIncident.ToShortDateString()} \n\n DateOfClaim: {claimInQueue.DateOfClaim.ToShortDateString()} \n\n IsValid: {claimInQueue.IsValid} ");
+                Console.WriteLine(" \n\n Do you want to deal with this claim now(y/n)? \n\n");
                 string claimAnswer = Console.ReadLine();
                 if (claimAnswer == "y")
                 {
                     _claimRepo.DequeueClaim();
-                    Console.Clear();
+                    Console.WriteLine("\n Press any key when finished with this claim.. \n\n");
+                    Console.ReadKey();
+                    return;
                 }
                 else if (claimAnswer == "n")
                 {
