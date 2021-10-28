@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeTwoClaimsLibrary
 {
-    public enum ClaimType { Car, Home, Theft}
+    public enum ClaimType { Car = 1, Home, Theft}
     public class Claim
     {
         public int ClaimID { get; set; }
@@ -29,6 +29,19 @@ namespace ChallengeTwoClaimsLibrary
                     return true;
                 }
             }
+        }
+        public Claim()
+        {
+
+        }
+        public Claim(int claimID, ClaimType claimType, string descriptionOfClaim, decimal claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
+        {
+            ClaimID = claimID;
+            TypeOfClaim = claimType;
+            ClaimDescription = descriptionOfClaim;
+            ClaimAmount = claimAmount;
+            DateOfIncident = dateOfIncident;
+            DateOfClaim = dateOfClaim;
         }
     }
 }
