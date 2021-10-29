@@ -13,12 +13,12 @@ namespace ChallengeOneCafeLibrary
         public string MealName { get; set; }
         public string Description { get; set; }
         public string Ingredients { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
 
 
         public string menuItems { get; set; }
-        public CafeMenuItem(int mealNumber, string mealName, string description, int price, string ingredients)
+        public CafeMenuItem(int mealNumber, string mealName, string description, decimal price, string ingredients)
         {
             MealNumber = mealNumber;
             MealName = mealName;

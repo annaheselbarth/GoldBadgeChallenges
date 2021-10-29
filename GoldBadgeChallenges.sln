@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeTwoClaimsLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeTwoClaimsTest", "ChallengeTwoClaimsTest\ChallengeTwoClaimsTest.csproj", "{87D44E7B-8CF8-4160-A3C7-2863AA9F091A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeThreeBadgesLibrary", "ChallengThreeBadgesLibrary\ChallengeThreeBadgesLibrary.csproj", "{E8C4557F-A511-4356-8622-B4AFD0EA4D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeThreeBadgesTest", "ChallengeThreeBadgesTest\ChallengeThreeBadgesTest.csproj", "{042805CD-7EF9-483F-9C28-5F8609C79880}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{87D44E7B-8CF8-4160-A3C7-2863AA9F091A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87D44E7B-8CF8-4160-A3C7-2863AA9F091A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87D44E7B-8CF8-4160-A3C7-2863AA9F091A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C4557F-A511-4356-8622-B4AFD0EA4D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C4557F-A511-4356-8622-B4AFD0EA4D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C4557F-A511-4356-8622-B4AFD0EA4D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C4557F-A511-4356-8622-B4AFD0EA4D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042805CD-7EF9-483F-9C28-5F8609C79880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042805CD-7EF9-483F-9C28-5F8609C79880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042805CD-7EF9-483F-9C28-5F8609C79880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042805CD-7EF9-483F-9C28-5F8609C79880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

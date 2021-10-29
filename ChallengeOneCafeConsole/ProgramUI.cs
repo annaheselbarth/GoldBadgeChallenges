@@ -93,7 +93,7 @@ namespace ChallengeOneCafeConsole
 
             Console.WriteLine("\n\n Please enter the price of the item:  \n\n");
             string input = Console.ReadLine();
-            var itemPrice = int.Parse(input);
+            decimal itemPrice = decimal.Parse(input);
             menuItem.Price = itemPrice;
 
             _cafeMenuRepo.AddItemToMenu(menuItem);
@@ -106,7 +106,7 @@ namespace ChallengeOneCafeConsole
 
         public void RemoveItem()
         {
-            bool removeItem = true;
+            /*bool removeItem = true;
             while (removeItem)
             {
                 Console.Clear();
@@ -125,28 +125,28 @@ namespace ChallengeOneCafeConsole
                     //while (checkNumber)
                     //{
                         int itemNumber = Number();
-                        CafeMenuItem menu = new CafeMenuItem();
-                        if (menu == null)
+                        CafeMenuItem meal = new CafeMenuItem();
+                        if (meal == null)
                         {
                             Console.WriteLine("/n/n We are not able to find that item.");
                             Console.ReadKey();
                             return;
                         }
 
-                        Console.WriteLine($" \n\n Are you sure you want to delete {menu.MealNumber} {menu.MealName}? Please enter in yes or no. ");
+                        Console.WriteLine($" \n\n Are you sure you want to delete {meal.MealNumber} {meal.MealName}? Please enter in yes or no. ");
                         string userAnswer = Console.ReadLine().ToLower();
                         if (userAnswer == "yes")
                         {
                             Console.Clear();
                             //RemoveItem();
-                            _cafeMenuRepo.RemoveItem(menu);
+                            _cafeMenuRepo.RemoveItem(meal);
                             Console.WriteLine(" This item was removed.   \n\n");
                             Console.ReadKey();
                             return;
                         }
                         else if (userAnswer == "no")
                         {
-                            Console.WriteLine($"\n{menu.MealNumber} {menu.MealName} was not deleted.");
+                            Console.WriteLine($"\n{meal.MealNumber} {meal.MealName} was not deleted.");
                             Console.ReadKey();
                             return;
                         }
@@ -164,10 +164,39 @@ namespace ChallengeOneCafeConsole
                     RemoveItem();
                     Console.WriteLine("\n    Your item has been removed. \n\n" + "    Press any key to continue.   ");
                     Console.ReadKey();
-                    return;*/
+                    return;
+                }*/
+
+            Console.Clear();
+            Console.WriteLine("\n Enter in the meal number that you would like to remove: \n\n");
+
+            int meal = Console.ReadLine();
+            CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetCafeMenu('int meal');
+
+            if (cafeMenuItem == null)
+            {
+                Console.WriteLine(" \n Meal Number was not found. \n\n");
+
+            }
+            else
+            {
+                CafeMenuList();
+                Console.WriteLine($" Are you sure you want to delete {cafeMenuItem.MealNumber} Enter yes or no");
+
+                string userAnswer = Console.ReadLine();
+                if (userAnswer.ToLower() == "yes")
+                {
+                    _cafeMenuRepo.RemoveItem(cafeMenuItem);
+                    Console.WriteLine($"{cafeMenuItem.MealNumber} has been removed.");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("This item was not removed. Press any key to exit.");
+                    Console.ReadKey();
+                    return;
                 }
             }
-
         }
 
         private int Number()
