@@ -26,8 +26,8 @@ namespace ChallengeOneCafeTests
 
             //Act
 
-
-           var itemAdded = _cafeMenuRepo.CreateNewItem(cafeMenu);
+            
+           var itemAdded = _cafeMenuRepo.AddItem(menuItem);
 
             //Assert
 
