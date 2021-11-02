@@ -84,6 +84,10 @@ namespace ChallengeOneCafeConsole
             Console.WriteLine("  Create new menu item. \n\n" + "Please enter in the name of the new menu item:  \n\n");
             menuItem.MealName = Console.ReadLine();
 
+            //Console.WriteLine("  Enter meal number for item. \n\n"  );
+            //int mealNumber = int.Parse(Console.ReadLine());
+            //menuItem.MealNumber = mealNumber;
+
 
             Console.WriteLine("\n\n Please enter in the description of the menu item:  \n\n");
             menuItem.Description = Console.ReadLine();
@@ -96,10 +100,10 @@ namespace ChallengeOneCafeConsole
             decimal itemPrice = decimal.Parse(input);
             menuItem.Price = itemPrice;
 
-            _cafeMenuRepo.AddItemToMenu(menuItem);
-            int index = 1;
-            Console.WriteLine($"{index} {menuItem.MealName} was added to the menu with the item number {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
-               index ++;
+            _cafeMenuRepo.AddItem(menuItem);
+            //int index = 0;
+            Console.WriteLine($" {menuItem.MealName} was added to the menu with the item number {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
+              // index ++;
             Console.ReadKey();
             return;
         }
@@ -167,35 +171,41 @@ namespace ChallengeOneCafeConsole
                     return;
                 }*/
 
-            Console.Clear();
-            Console.WriteLine("\n Enter in the meal number that you would like to remove: \n\n");
-
-            int meal = Console.ReadLine();
-            CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetCafeMenu('int meal');
-
-            if (cafeMenuItem == null)
+            
+            bool removeItem = true;
+            while (removeItem)
             {
-                Console.WriteLine(" \n Meal Number was not found. \n\n");
-
-            }
-            else
-            {
-                CafeMenuList();
-                Console.WriteLine($" Are you sure you want to delete {cafeMenuItem.MealNumber} Enter yes or no");
-
-                string userAnswer = Console.ReadLine();
-                if (userAnswer.ToLower() == "yes")
+                Console.Clear();
+                Console.WriteLine("\n Enter in the meal number that you would like to remove: \n\n");
+                int removeNum = int.Parse(Console.ReadLine());
+                //CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetCafeMenu(); ;
+                //List<CafeMenuItem> cafeMenuItem = _cafeMenuRepo.GetCafeMenu();
+                CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetItemByNumber(removeNum);
+                if (cafeMenuItem == null)
                 {
-                    _cafeMenuRepo.RemoveItem(cafeMenuItem);
-                    Console.WriteLine($"{cafeMenuItem.MealNumber} has been removed.");
-                    return;
+                    Console.WriteLine(" \n Meal Number was not found. \n\n");
+
                 }
                 else
                 {
-                    Console.WriteLine("This item was not removed. Press any key to exit.");
-                    Console.ReadKey();
-                    return;
+                    CafeMenuList();
+                    Console.WriteLine($" Are you sure you want to delete {cafeMenuItem.MealNumber} Enter yes or no");
+
+                    string userAnswer = Console.ReadLine();
+                    if (userAnswer.ToLower() == "yes")
+                    {
+                        _cafeMenuRepo.RemoveItem(cafeMenuItem);
+                        Console.WriteLine($"{cafeMenuItem.MealNumber} has been removed.");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("This item was not removed. Press any key to exit.");
+                        Console.ReadKey();
+                        return;
+                    }
                 }
+            
             }
         }
 

@@ -12,7 +12,7 @@ namespace ChallengThreeBadgesLibrary
         {
 
         }
-
+        public string BadgeName { get; set; }
         public int BadgeID { get; set; }
         public List<string> DoorAccess { get; set; }
         public Badge(int id)

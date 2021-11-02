@@ -8,28 +8,28 @@ namespace ChallengThreeBadgesLibrary
 {
     public class BadgeRepo
     {
-        protected readonly Dictionary<int, List<string>> _badgeRepo = new Dictionary<int, List<string>>();
+        protected readonly Dictionary<int, List<string>> _badgeDictionary = new Dictionary<int, List<string>>();
 
         //Create
         public bool AddBadge(int id, List<string> doors)
         {
-            int starting = _badgeRepo.Count();
-            _badgeRepo.Add(id, doors);
-            return _badgeRepo.Count() > starting;
+            int starting = _badgeDictionary.Count();
+            _badgeDictionary.Add(id, doors);
+            return _badgeDictionary.Count() > starting;
         }
 
         public bool AddDoor(int badgeID, string door)
         {
-            int starting = _badgeRepo[badgeID].Count();
-            _badgeRepo[badgeID].Add(door);
-            return _badgeRepo[badgeID].Count() > starting;
+            int starting = _badgeDictionary[badgeID].Count();
+            _badgeDictionary[badgeID].Add(door);
+            return _badgeDictionary[badgeID].Count() > starting;
         }
         
         //Read
 
-        public Dictionary<int, List<string>> BadgeList()
+        public Dictionary<int, List<string>> GetBadgeDictionary()
         {
-            return _badgeRepo;
+            return _badgeDictionary;
         }
 
         //Update
@@ -37,7 +37,7 @@ namespace ChallengThreeBadgesLibrary
         public Badge BadgeID(int id)
         {
              Badge badge = new Badge();
-             foreach(var keyValuePair in _badgeRepo)
+             foreach(var keyValuePair in _badgeDictionary)
             {
                 if (keyValuePair.Key == id)
                 {
@@ -53,22 +53,22 @@ namespace ChallengThreeBadgesLibrary
 
         public bool DeleteBadge(Badge badge)
         {
-            if (!_badgeRepo.ContainsKey(badge.BadgeID))
+            if (!_badgeDictionary.ContainsKey(badge.BadgeID))
             {
                 return false;
             }
             else
             {
-                _badgeRepo.Remove(badge.BadgeID);
+                _badgeDictionary.Remove(badge.BadgeID);
                 return true;
             }
         }
 
         public bool DeleteDoor(int badgeID, string door)
         {
-            int starting = _badgeRepo[badgeID].Count();
-            _badgeRepo[badgeID].Remove(door);
-            return _badgeRepo[badgeID].Count() < starting;
+            int starting = _badgeDictionary[badgeID].Count();
+            _badgeDictionary[badgeID].Remove(door);
+            return _badgeDictionary[badgeID].Count() < starting;
         }
 
 
