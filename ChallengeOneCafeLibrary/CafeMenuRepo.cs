@@ -13,15 +13,15 @@ namespace ChallengeOneCafeLibrary
         CafeMenuItem menu = new CafeMenuItem();
         public List<CafeMenuItem> _cafeMenuRepo = new List<CafeMenuItem>();
         int counter = 1;
-        public void AddItem(CafeMenuItem menuItem)
+        /*public void AddItem(CafeMenuItem menuItem)
         {
             menuItem.MealNumber = counter++;
 
             _cafeMenuRepo.Add(menuItem);
-        }
+        }*/
 
         
-        /*public bool CreateNewItem(CafeMenuItem menuItem)
+        public bool AddItem(CafeMenuItem menuItem)
         {
             int initCount = _cafeMenuRepo.Count;
             int counter;
@@ -31,7 +31,7 @@ namespace ChallengeOneCafeLibrary
             int newCount = _cafeMenuRepo.Count;
             return newCount == initCount ++;
 
-        }*/
+        }
 
         public CafeMenuItem GetItemByNumber(int mealNumber)
         {

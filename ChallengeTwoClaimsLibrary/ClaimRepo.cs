@@ -40,7 +40,7 @@ namespace ChallengeTwoClaimsLibrary
 
         //Delete
 
-        public bool DequeueClaim()
+        public bool DequeueClaim(Claim _testClaim)
         {
             int startingCount = _claimRepo.Count;
             _claimRepo.Dequeue();
