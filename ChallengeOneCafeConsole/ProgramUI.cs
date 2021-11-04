@@ -53,8 +53,7 @@ namespace ChallengeOneCafeConsole
         {
             Console.Clear();
             Console.WriteLine("\n\n\n  *********************************  Komodo Cafe Menu List  **********************************\n\n\n");
-            //Console.ReadLine();
-            //CafeMenuList();
+           
             List<CafeMenuItem> menuList = _cafeMenuRepo.GetCafeMenu();
             if (menuList.Count == 0)
             {

@@ -1,6 +1,7 @@
 ﻿using ChallengThreeBadgesLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace ChallengeThreeBadgesTest
 {
@@ -13,90 +14,75 @@ namespace ChallengeThreeBadgesTest
        // private Badge _testBadge1;
        // private Badge _testBadge2;
 
-        BadgeRepo _badgeRepo = new BadgeRepo();
-        Badge _testBadge = new Badge();
-        BadgeRepo _badgeDictionary = new BadgeRepo();
+       // BadgeRepo _badgeRepo = new BadgeRepo();
+       // Badge _testBadge = new Badge();
+        //BadgeRepo _badgeDictionary = new BadgeRepo();
+        private List<string> _list1;
+        private List<string> _list2;
+        private List<string> _list3;
+        private Badge _badge1;
+        private Badge _badge2;
+        private Badge _badge3;
+        private BadgeRepo _badgeRepo;
 
 
         [TestInitialize]
 
         public void Arrange()
         {
-            //_testBadge = new Badge();
-            //_testBadge1 = new Badge(1, "D3");
-            //_badgeRepo = new BadgeRepo();
-            //_testBadge = new Badge(2, "A3");
-
-            //_testBadge = new Badge(3, new List<string> { "A1", "B2", "C3", "D4" });
-            //_badgeRepo.AddBadge(_testBadge);
-
-            
-
-            //_badgeRepo.AddBadge(_testBadge);
-            //_testBadge.DoorAccess = new Dictionary<string> { "C4", "D3" };
-            //_badgeDictionary.AddBadge(_testBadge);
-
+            _list1 = new List<string>() { "A1", "A2" };
+            _list2 = new List<string>() { "B1", "B2", "B3" };
+            _list3 = new List<string>() { "C1", "C2", "C3" };
+            _badge1 = new Badge(1, _list1);
+            _badge2 = new Badge(2, _list2);
+            _badge3 = new Badge(3, _list3);
+            _badgeRepo = new BadgeRepo();
+            _badgeRepo.AddBadge(1, _list1);
+            _badgeRepo.AddBadge(2, _list2);
+            _badgeRepo.AddBadge(3, _list3);
+           
         }
 
         [TestMethod]
         public void Test_AddBadge()
         {
-           BadgeRepo _badgeRepo = new BadgeRepo();
-           Badge _testBadge = new Badge(new List<string> { "A1", "A2", "A3" });
-            
-           bool success = _badgeRepo.AddBadge(_testBadge);
-
-            Assert.IsNotNull(success);
-            Assert.IsTrue(success);
-
-
-
-            //Assert.IsTrue(_badgeRepo.GetBadgeDictionary().ContainsKey(3));
+           
+            Assert.IsTrue(_badgeRepo.GetBadgeDictionary().ContainsKey(1));
         }
 
         [TestMethod]
         public void Test_AddDoor()
         {
-            BadgeRepo _badgeRepo = new BadgeRepo();
-            Badge _testBadge = new Badge(new List<string> { "A1", "A2", "A3" });
 
-            _badgeRepo.AddBadge(_testBadge);
-            var addDoor = "A4";
-            bool doorAdded = _badgeRepo.AddDoor(_testBadge.BadgeID, addDoor);
-            Assert.IsTrue(doorAdded);
-            //string doorAccess = "A3";
-            //Assert.IsTrue(_badgeRepo.GetBadgeDictionary().TryGetValue(3, "A3"));
-            
-            
-            //string access = "A3";
+            int startingCount = _badge2.DoorAccess.Count;
+            _badgeRepo.AddDoor(2, "A3");
+            int secondCount = _badge2.DoorAccess.Count;
 
-            //bool success = _badgeRepo.AddDoor(12345, access);
-
-            //Assert.IsTrue (success);
+            Assert.IsTrue(_badge2.DoorAccess.Contains("A3"));
+           
         }
 
         [TestMethod]
         public void Test_GetBadgeDictionary()
         {
-            BadgeRepo _badgeRepo = new BadgeRepo();
-            Badge getBadge = new Badge(2, new List<string> { "C1", "C2" } );
-            _badgeRepo.AddBadge(getBadge);
-            int intialCount = _badgeRepo.GetBadgeDictionary().Count;
-            Assert.AreEqual(getBadge, intialCount);
-            Assert.AreNotEqual(getBadge, intialCount);
+            
+            Dictionary<int, List<string>> testDictionary = new Dictionary<int, List<string>>(_badgeRepo.GetBadgeDictionary());
+
+            Assert.IsNotNull(testDictionary);
+            Assert.AreEqual(_badge1, testDictionary[1]);
         }
 
         [TestMethod]
         public void Test_BadgeID()
         {
-            var badge = _badgeRepo.BadgeID(1);
-            Assert.AreEqual(_testBadge.DoorAccess, badge);
+            var getBadgeID = _badgeRepo.BadgeID(3);
+            Assert.IsNotNull(getBadgeID);
         }
 
         [TestMethod]
         public void Test_DeleteBadge()
         {
-           bool deleteBadge = _badgeRepo.DeleteBadge(_testBadge);
+           bool deleteBadge = _badgeRepo.DeleteBadge(_badge1);
 
            Assert.IsTrue(deleteBadge);
         }
@@ -104,28 +90,13 @@ namespace ChallengeThreeBadgesTest
         [TestMethod]
         public void Test_DeleteDoor()
         {
-            //bool deleteDoor = _badgeRepo.DeleteDoor(111111, "C4");
-            //Assert.IsTrue(deleteDoor);
-
-            BadgeRepo _badgeRepo = new BadgeRepo();
-            //Badge _testBadge = new Badge(3, List<string> "A3" );
-            //_badgeRepo.AddBadge(_testBadge);
-
-            //int startingCount = _testBadge.DoorAccess.Count;
-            //_badgeRepo.DeleteDoor(3, "A3");
-            //int finalCount = _testBadge.DoorAccess.Count("A3");
-
-            //Assert.IsFalse(_testBadge.DoorAccess.Contains("A3"));
-            //Assert.AreEqual(startingCount - 1, finalCount);
-
-           Badge _testBadge = new Badge();
-            Badge removeBadge = new Badge(3, List<string> { "A3" });
-            _badgeRepo.AddBadge(removeBadge);
-            var removeDoor = "A3";
-            bool itemRemoved = _badgeRepo.DeleteDoor(_testBadge.BadgeID, removeDoor);
-
-            Assert.IsTrue(itemRemoved);
-
+           List<string> addList = new List<string>() { "B1", "B2", "B3" };
+            Badge removeDoor = new Badge(3, addList);
+            
+            bool itemRemoved = _badgeRepo.DeleteDoor(3, "B1");
+          
+            Assert.IsNotNull(itemRemoved);
+           
 
         }
     }
