@@ -24,12 +24,12 @@ namespace ChallengeOneCafeLibrary
         public bool AddItem(CafeMenuItem menuItem)
         {
             int initCount = _cafeMenuRepo.Count;
-            int counter;
-            counter = _cafeMenuRepo.Count +1;
-            menuItem.MealNumber = counter++;
+            //int counter;
+            //counter = _cafeMenuRepo.Count +1;
+            //menuItem.MealNumber = counter++;
             _cafeMenuRepo.Add(menuItem);
             int newCount = _cafeMenuRepo.Count;
-            return newCount == initCount ++;
+            return newCount > initCount;
 
         }
 

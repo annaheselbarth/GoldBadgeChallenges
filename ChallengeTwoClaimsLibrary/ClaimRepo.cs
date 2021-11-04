@@ -10,10 +10,9 @@ namespace ChallengeTwoClaimsLibrary
     public class ClaimRepo
     {
 
-        //private List<Claim> _claimRepo = new List<Claim>();
+        
         private Queue<Claim> _claimRepo = new Queue<Claim>();
-        //var queue = new Queue<Claim>();
-        //for( int i = 0; i < _claimRepo.Count; i++ )
+        
 
         //Create
         public bool AddNewClaim(Claim newClaim)

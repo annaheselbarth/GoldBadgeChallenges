@@ -38,15 +38,6 @@ namespace ChallengeTwoClaimsTest
         [TestMethod]
         public void Test_GetNextClaim()
         {
-            /* ClaimRepo _claimRepo = new ClaimRepo();
-             Claim claimID = new Claim();
-             claimID.ClaimID = 2;
-
-             _claimRepo.AddNewClaim(claimID);
-
-             List<Claim> peekClaim = _claimRepo.ClaimList();
-             bool newClaimID = peekClaim.Contains(claimID);
-             Assert.IsTrue(newClaimID);*/
             Claim claim = _claimRepo.GetNextClaim();
             Assert.AreEqual(_testClaim, claim);
         }
@@ -54,17 +45,6 @@ namespace ChallengeTwoClaimsTest
         [TestMethod]
         public void Test_ClaimList()
         {
-            /*DateTime dateOfClaim = new DateTime(2019, 11, 04);
-            DateTime dateOfIncident = new DateTime(2019, 10, 30);
-            Claim newClaim = new Claim(1, ClaimType.Home, "tornado", 10000, dateOfIncident, dateOfClaim);
-            _claimRepo.AddNewClaim(newClaim);
-
-            Queue<Claim> claimList = _claimRepo.ClaimList();
-
-            bool success = claimList.Contains(newClaim);
-
-            Assert.IsTrue(success);*/
-
             int intialCount = _claimRepo.ClaimList().Count;
             Assert.AreEqual(intialCount, 1);
             Assert.AreNotEqual(intialCount, 2);

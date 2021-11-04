@@ -84,11 +84,6 @@ namespace ChallengeOneCafeConsole
             Console.WriteLine("  Create new menu item. \n\n" + "Please enter in the name of the new menu item:  \n\n");
             menuItem.MealName = Console.ReadLine();
 
-            //Console.WriteLine("  Enter meal number for item. \n\n"  );
-            //int mealNumber = int.Parse(Console.ReadLine());
-            //menuItem.MealNumber = mealNumber;
-
-
             Console.WriteLine("\n\n Please enter in the description of the menu item:  \n\n");
             menuItem.Description = Console.ReadLine();
 
@@ -101,85 +96,22 @@ namespace ChallengeOneCafeConsole
             menuItem.Price = itemPrice;
 
             _cafeMenuRepo.AddItem(menuItem);
-            //int index = 0;
-            Console.WriteLine($" {menuItem.MealName} was added to the menu with the item number {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
-              // index ++;
+            
+            Console.WriteLine($" {menuItem.MealName} was added to the menu. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
+              
             Console.ReadKey();
             return;
         }
 
         public void RemoveItem()
         {
-            /*bool removeItem = true;
-            while (removeItem)
-            {
-                Console.Clear();
-                CafeMenuList();
-                List<CafeMenuItem> listOfItems = _cafeMenuRepo.GetCafeMenu();
-                if (listOfItems.Count == 0)
-                {
-                    removeItem = false;
-                    //return;
-                }
-                else
-                {
-                    Console.WriteLine("\n Please enter the menu number of the item you would like to remove:  \n\n");
-
-                    //bool checkNumber = true;
-                    //while (checkNumber)
-                    //{
-                        int itemNumber = Number();
-                        CafeMenuItem meal = new CafeMenuItem();
-                        if (meal == null)
-                        {
-                            Console.WriteLine("/n/n We are not able to find that item.");
-                            Console.ReadKey();
-                            return;
-                        }
-
-                        Console.WriteLine($" \n\n Are you sure you want to delete {meal.MealNumber} {meal.MealName}? Please enter in yes or no. ");
-                        string userAnswer = Console.ReadLine().ToLower();
-                        if (userAnswer == "yes")
-                        {
-                            Console.Clear();
-                            //RemoveItem();
-                            _cafeMenuRepo.RemoveItem(meal);
-                            Console.WriteLine(" This item was removed.   \n\n");
-                            Console.ReadKey();
-                            return;
-                        }
-                        else if (userAnswer == "no")
-                        {
-                            Console.WriteLine($"\n{meal.MealNumber} {meal.MealName} was not deleted.");
-                            Console.ReadKey();
-                            return;
-                        }
-                        else
-                        {
-                            Console.ReadKey();
-                            return;
-                        }
-
-                    //}
-                    
-                   /* CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetItemByNumber(itemNumber);
-                    string removeNum = Console.ReadLine();
-                    var number = int.Parse(removeNum);
-                    RemoveItem();
-                    Console.WriteLine("\n    Your item has been removed. \n\n" + "    Press any key to continue.   ");
-                    Console.ReadKey();
-                    return;
-                }*/
-
-            
             bool removeItem = true;
             while (removeItem)
             {
                 Console.Clear();
                 Console.WriteLine("\n Enter in the meal number that you would like to remove: \n\n");
                 int removeNum = int.Parse(Console.ReadLine());
-                //CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetCafeMenu(); ;
-                //List<CafeMenuItem> cafeMenuItem = _cafeMenuRepo.GetCafeMenu();
+                
                 CafeMenuItem cafeMenuItem = _cafeMenuRepo.GetItemByNumber(removeNum);
                 if (cafeMenuItem == null)
                 {
