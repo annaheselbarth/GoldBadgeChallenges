@@ -66,7 +66,6 @@ namespace ChallengeOneCafeConsole
                 int index = 1;
                 foreach (CafeMenuItem cafeMenuItem in menuList)
                 {
-                    //_cafeMenuRepo.AddItem(cafeMenuItem);
                     Console.WriteLine($"{index}. {cafeMenuItem.MealName} {cafeMenuItem.MealNumber} {cafeMenuItem.menuItems} {cafeMenuItem.Ingredients} {cafeMenuItem.Description} {cafeMenuItem.Price}");
                       index ++;
                     
@@ -95,9 +94,10 @@ namespace ChallengeOneCafeConsole
             decimal itemPrice = decimal.Parse(input);
             menuItem.Price = itemPrice;
 
+
             _cafeMenuRepo.AddItem(menuItem);
             
-            Console.WriteLine($" {menuItem.MealName} was added to the menu. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
+            Console.WriteLine($" {menuItem.MealName} was added to the menu. The meal number is {menuItem.MealNumber}. The description is {menuItem.Description}. The price is $ {menuItem.Price} and ingredients are {menuItem.Ingredients}.");
               
             Console.ReadKey();
             return;

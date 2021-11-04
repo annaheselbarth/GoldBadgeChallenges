@@ -42,7 +42,7 @@ namespace ChallengeThreeBadgesTest
         public void Test_AddBadge()
         {
            BadgeRepo _badgeRepo = new BadgeRepo();
-           Badge _testBadge = new Badge();
+           Badge _testBadge = new Badge(new List<string> { "A1", "A2", "A3" });
             
            bool success = _badgeRepo.AddBadge(_testBadge);
 
@@ -57,8 +57,15 @@ namespace ChallengeThreeBadgesTest
         [TestMethod]
         public void Test_AddDoor()
         {
+            BadgeRepo _badgeRepo = new BadgeRepo();
+            Badge _testBadge = new Badge(new List<string> { "A1", "A2", "A3" });
+
+            _badgeRepo.AddBadge(_testBadge);
+            var addDoor = "A4";
+            bool doorAdded = _badgeRepo.AddDoor(_testBadge.BadgeID, addDoor);
+            Assert.IsTrue(doorAdded);
             //string doorAccess = "A3";
-            Assert.IsTrue(_badgeRepo.GetBadgeDictionary().TryGetValue(3, "A3"));
+            //Assert.IsTrue(_badgeRepo.GetBadgeDictionary().TryGetValue(3, "A3"));
             
             
             //string access = "A3";
@@ -72,11 +79,11 @@ namespace ChallengeThreeBadgesTest
         public void Test_GetBadgeDictionary()
         {
             BadgeRepo _badgeRepo = new BadgeRepo();
-            Badge getBadge = new Badge(3, "C4" );
+            Badge getBadge = new Badge(2, new List<string> { "C1", "C2" } );
             _badgeRepo.AddBadge(getBadge);
             int intialCount = _badgeRepo.GetBadgeDictionary().Count;
-            Assert.AreEqual(intialCount, 1);
-            Assert.AreNotEqual(intialCount, 2);
+            Assert.AreEqual(getBadge, intialCount);
+            Assert.AreNotEqual(getBadge, intialCount);
         }
 
         [TestMethod]
@@ -101,23 +108,23 @@ namespace ChallengeThreeBadgesTest
             //Assert.IsTrue(deleteDoor);
 
             BadgeRepo _badgeRepo = new BadgeRepo();
-            Badge _testBadge = new Badge(3, List<string> "A3" );
-            _badgeRepo.AddBadge(_testBadge);
+            //Badge _testBadge = new Badge(3, List<string> "A3" );
+            //_badgeRepo.AddBadge(_testBadge);
 
-            int startingCount = _testBadge.DoorAccess.Count;
-            _badgeRepo.DeleteDoor(3, "A3");
-            int finalCount = _testBadge.DoorAccess.Count("A3");
+            //int startingCount = _testBadge.DoorAccess.Count;
+            //_badgeRepo.DeleteDoor(3, "A3");
+            //int finalCount = _testBadge.DoorAccess.Count("A3");
 
-            Assert.IsFalse(_testBadge.DoorAccess.Contains("A3"));
-            Assert.AreEqual(startingCount - 1, finalCount);
+            //Assert.IsFalse(_testBadge.DoorAccess.Contains("A3"));
+            //Assert.AreEqual(startingCount - 1, finalCount);
 
-           /* BadgeRepo _testBadge = new BadgeRepo();
-            string door = "A3";
-            Badge removeBadge = new Badge(3, "A3");
+           Badge _testBadge = new Badge();
+            Badge removeBadge = new Badge(3, List<string> { "A3" });
             _badgeRepo.AddBadge(removeBadge);
-            bool itemRemoved = _badgeRepo.DeleteDoor(3, "A3");
+            var removeDoor = "A3";
+            bool itemRemoved = _badgeRepo.DeleteDoor(_testBadge.BadgeID, removeDoor);
 
-            Assert.IsTrue(itemRemoved);*/
+            Assert.IsTrue(itemRemoved);
 
 
         }
