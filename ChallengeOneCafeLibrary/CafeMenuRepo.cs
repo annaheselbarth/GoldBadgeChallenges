@@ -22,8 +22,6 @@ namespace ChallengeOneCafeLibrary
             int newCount = _cafeMenuRepo.Count;
             return newCount > initCount;
 
-
-
         }
 
         public CafeMenuItem GetItemByNumber(int mealNumber)

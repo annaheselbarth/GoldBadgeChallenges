@@ -78,7 +78,6 @@ namespace ChallengeThreeBadgesConsole
                 {
                     Console.WriteLine(" Press any key to exit. \n\n");
                     otherDoors = false;
-                   // _badgeRepo.AddBadge(id, doorAccess);
                     return;
                 }
                 else
@@ -97,7 +96,6 @@ namespace ChallengeThreeBadgesConsole
             bool editBadge = true;
             while (editBadge)
             {
-                //GetBadgeList();
                 Dictionary<int, List<string>> badgeList = _badgeRepo.GetBadgeDictionary();
                 Console.WriteLine("\n\n What is the badge number to update? \n\n");
                 int id = int.Parse(Console.ReadLine());
@@ -124,7 +122,6 @@ namespace ChallengeThreeBadgesConsole
                         Console.WriteLine($" {door}");
                     }
                     editBadge = false;
-                    //return;
                 }
                 else if (answerDoor == "2")
                 {
@@ -138,7 +135,6 @@ namespace ChallengeThreeBadgesConsole
                         Console.WriteLine($" {door} \n\n");
                     }
                     editBadge = false;
-                    //return;
                 }
                 else
                 {
@@ -154,20 +150,16 @@ namespace ChallengeThreeBadgesConsole
             Console.Clear();
             Console.WriteLine("\n\n\n *************************** List of Badges **************************\n\n\n");
 
-            //BadgeList();
             Dictionary<int, List<string>> badges = _badgeRepo.GetBadgeDictionary();
-            //keyvaluepair[0] => key: 123 value: "A7","blah2","blah3"
-            //keyvaluepair[1] => key: 354 value: "blah5","blah22","blah13"
-            foreach (var idAndDoors in badges) //foreach item in my dictionary
+            
+            foreach (var idAndDoors in badges) 
             {
-                foreach (string door in idAndDoors.Value) //foreach string in my keyvaluepair value(List<string>)
+                foreach (string door in idAndDoors.Value) 
                 {
 
                     Console.WriteLine($" {idAndDoors.Key} : {door} ");
                 }
             }
-
-           
             Console.ReadKey();
             return;
             

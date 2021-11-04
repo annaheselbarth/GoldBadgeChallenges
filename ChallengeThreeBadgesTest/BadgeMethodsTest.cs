@@ -8,15 +8,6 @@ namespace ChallengeThreeBadgesTest
     [TestClass]
     public class BadgeMethodsTest
     {
-        
-        //private BadgeRepo _badgeRepo;
-        //private Badge _testBadge;
-       // private Badge _testBadge1;
-       // private Badge _testBadge2;
-
-       // BadgeRepo _badgeRepo = new BadgeRepo();
-       // Badge _testBadge = new Badge();
-        //BadgeRepo _badgeDictionary = new BadgeRepo();
         private List<string> _list1;
         private List<string> _list2;
         private List<string> _list3;
@@ -96,8 +87,6 @@ namespace ChallengeThreeBadgesTest
             bool itemRemoved = _badgeRepo.DeleteDoor(3, "B1");
           
             Assert.IsNotNull(itemRemoved);
-           
-
         }
     }
 }

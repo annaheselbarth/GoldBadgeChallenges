@@ -67,9 +67,6 @@ namespace ChallengeOneCafeConsole
                 {
                     Console.WriteLine($"{index}. {cafeMenuItem.MealName} {cafeMenuItem.MealNumber} {cafeMenuItem.menuItems} {cafeMenuItem.Ingredients} {cafeMenuItem.Description} {cafeMenuItem.Price}");
                       index ++;
-                    
-                    
-                    
                 }
             }
            Console.ReadKey();
@@ -115,7 +112,6 @@ namespace ChallengeOneCafeConsole
                 if (cafeMenuItem == null)
                 {
                     Console.WriteLine(" \n Meal Number was not found. \n\n");
-
                 }
                 else
                 {
@@ -138,26 +134,6 @@ namespace ChallengeOneCafeConsole
                 }
             
             }
-        }
-
-        private int Number()
-        {
-            bool checkId = true;
-            while (checkId)
-            {
-                string stringInput = Console.ReadLine();
-                if (!int.TryParse(stringInput, out int Id))
-                {
-
-                    Console.Write("Please enter a number: \n\n");
-                    continue;
-                }
-                else
-                {
-                    return Int32.Parse(stringInput);
-                }
-            }
-            return +1;
         }
     }
 }

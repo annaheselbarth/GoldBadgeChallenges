@@ -12,7 +12,6 @@ namespace ChallengeTwoClaimsConsole
         private readonly ClaimRepo _claimRepo = new ClaimRepo();
         Queue<Claim> claimList = new Queue<Claim>();
 
-        
         public void Run()
         {
             SeedQueueList();
@@ -58,20 +57,9 @@ namespace ChallengeTwoClaimsConsole
             Console.WriteLine("\n\n Claim ID:  \n\n");
             int id = int.Parse(Console.ReadLine());
             newClaim.ClaimID = id;
-            //bool typeMenu = true;
-            //while (typeMenu)
-            //{
 
             Console.WriteLine(" \n\n Claim Type:  \n\n" + "Choose 1 for Car \n" + "Choose 2 for Home. \n" + "Choose 3 for Theft. \n\n");
 
-            //string answer = Console.ReadLine();
-
-            //switch (answer)
-            //{
-            //case "1":
-            //Car()
-            //}
-            //}
 
             string answerType = Console.ReadLine();
             int type = int.Parse(answerType);
@@ -99,8 +87,6 @@ namespace ChallengeTwoClaimsConsole
             Console.WriteLine("  \n\n Press any key to go back to main menu. \n\n");
             Console.ReadKey();
             return;
-
-
         }
 
         public void GetNextClaim()
@@ -116,7 +102,7 @@ namespace ChallengeTwoClaimsConsole
                 string claimAnswer = Console.ReadLine();
                 if (claimAnswer == "y")
                 {
-                    _claimRepo.DequeueClaim();
+                    _claimRepo.DequeueClaim(claimInQueue);
                     Console.WriteLine("\n Press any key when finished with this claim.. \n\n");
                     Console.ReadKey();
                     return;

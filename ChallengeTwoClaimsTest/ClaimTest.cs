@@ -31,8 +31,6 @@ namespace ChallengeTwoClaimsTest
             bool success = claimRepo.AddNewClaim(claim);
 
             Assert.IsTrue(success);
-
-
         }
 
         [TestMethod]
